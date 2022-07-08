@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.text.NumberFormat;
 import java.util.Locale;
 
-public class Impressao {
+public class Impressor {
     public static String imprimeTelefone(String telefone) {
         if (telefone.length() == 11) {
             return "(" + telefone.substring(0, 2) + ") " + telefone.substring(2, 7) + " - " + telefone.substring(7, 11);
