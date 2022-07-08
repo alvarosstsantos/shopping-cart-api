@@ -9,8 +9,8 @@ import java.util.List;
 public class ProdutoFileRepository implements ProdutoRepository {
 
     @Override
-    public void save(Produto entity) {
-
+    public Produto save(Produto entity) {
+        return null;
     }
 
     @Override
@@ -24,8 +24,8 @@ public class ProdutoFileRepository implements ProdutoRepository {
     }
 
     @Override
-    public void update(Produto entity) {
-
+    public Produto update(Produto entity) {
+        return null;
     }
 
     @Override

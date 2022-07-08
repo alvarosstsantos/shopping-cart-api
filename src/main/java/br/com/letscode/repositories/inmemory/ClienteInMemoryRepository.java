@@ -3,28 +3,25 @@ package br.com.letscode.repositories.inmemory;
 
 import br.com.letscode.models.Cliente;
 import br.com.letscode.repositories.ClienteRepository;
+import br.com.letscode.utils.Gerador;
 
 import java.util.List;
+import java.util.Objects;
 
 public class ClienteInMemoryRepository implements ClienteRepository {
-    private static ClienteInMemoryRepository clienteInMemoryRepository = null;
     private InMemoryRepository<Cliente, Long> repository = null;
 
     public ClienteInMemoryRepository() {
         this.repository = new InMemoryRepository<Cliente, Long>();
     }
 
-    public static ClienteInMemoryRepository getInstance()
-    {
-        if (clienteInMemoryRepository == null)
-            clienteInMemoryRepository = new ClienteInMemoryRepository();
-
-        return clienteInMemoryRepository;
-    }
-
     @Override
-    public void save(Cliente cliente) {
-        this.repository.save(cliente);
+    public Cliente save(Cliente cliente) {
+        if (Objects.isNull(cliente.getId())) {
+            cliente.setId(Gerador.generateRandomLong());
+        }
+
+        return this.repository.save(cliente);
     }
 
     @Override
@@ -38,8 +35,8 @@ public class ClienteInMemoryRepository implements ClienteRepository {
     }
 
     @Override
-    public void update(Cliente cliente) {
-        this.repository.update(cliente);
+    public Cliente update(Cliente cliente) {
+        return this.repository.update(cliente);
     }
 
     @Override

@@ -3,28 +3,25 @@ package br.com.letscode.repositories.inmemory;
 
 import br.com.letscode.models.Carrinho;
 import br.com.letscode.repositories.CarrinhoRepository;
+import br.com.letscode.utils.Gerador;
 
 import java.util.List;
+import java.util.Objects;
 
 public class CarrinhoInMemoryRepository implements CarrinhoRepository {
-    private static CarrinhoInMemoryRepository carrinhoInMemoryRepository = null;
     private InMemoryRepository<Carrinho, Long> repository = null;
 
     public CarrinhoInMemoryRepository() {
         this.repository = new InMemoryRepository<Carrinho, Long>();
     }
 
-    public static CarrinhoInMemoryRepository getInstance()
-    {
-        if (carrinhoInMemoryRepository == null)
-            carrinhoInMemoryRepository = new CarrinhoInMemoryRepository();
-
-        return carrinhoInMemoryRepository;
-    }
-
     @Override
-    public void save(Carrinho carrinho) {
-        this.repository.save(carrinho);
+    public Carrinho save(Carrinho carrinho) {
+        if (Objects.isNull(carrinho.getId())) {
+            carrinho.setId(Gerador.generateRandomLong());
+        }
+
+        return this.repository.save(carrinho);
     }
 
     @Override
@@ -38,8 +35,8 @@ public class CarrinhoInMemoryRepository implements CarrinhoRepository {
     }
 
     @Override
-    public void update(Carrinho carrinho) {
-        this.repository.update(carrinho);
+    public Carrinho update(Carrinho carrinho) {
+        return this.repository.update(carrinho);
     }
 
     @Override

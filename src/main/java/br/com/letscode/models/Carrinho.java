@@ -8,11 +8,11 @@ public class Carrinho extends Model<Long>{
     @Id
     private Long codigo;
     private Cliente cliente;
-    private Map<Long, Integer> itens= new HashMap<Long, Integer>();
-    private BigDecimal frete;
-    private BigDecimal taxa;
-    private BigDecimal desconto;
-    private BigDecimal total;
+    private Map<Long, Integer> itens = new HashMap<Long, Integer>();
+    private BigDecimal frete = BigDecimal.ZERO;
+    private BigDecimal taxa = BigDecimal.ZERO;
+    private BigDecimal desconto = BigDecimal.ZERO;
+    private BigDecimal total = BigDecimal.ZERO;
 
     public Long getCodigo() {
         return codigo;

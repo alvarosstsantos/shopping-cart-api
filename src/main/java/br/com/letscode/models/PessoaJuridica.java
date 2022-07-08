@@ -3,11 +3,13 @@ package br.com.letscode.models;
 public class PessoaJuridica extends Pessoa{
     private String cnpj;
 
-    public String getCnpj() {
-        return cnpj;
+    @Override
+    public void setDocumento(String documento) {
+        this.cnpj = documento;
     }
 
-    public void setCnpj(String cnpj) {
-        this.cnpj = cnpj;
+    @Override
+    public String getDocumento() {
+        return cnpj;
     }
 }

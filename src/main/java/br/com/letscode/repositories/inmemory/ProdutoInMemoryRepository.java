@@ -7,24 +7,15 @@ import br.com.letscode.repositories.ProdutoRepository;
 import java.util.List;
 
 public class ProdutoInMemoryRepository implements ProdutoRepository {
-    private static ProdutoInMemoryRepository produtoInMemoryRepository = null;
     private InMemoryRepository<Produto, Long> repository = null;
 
     public ProdutoInMemoryRepository() {
         this.repository = new InMemoryRepository<Produto, Long>();
     }
 
-    public static ProdutoInMemoryRepository getInstance()
-    {
-        if (produtoInMemoryRepository == null)
-            produtoInMemoryRepository = new ProdutoInMemoryRepository();
-
-        return produtoInMemoryRepository;
-    }
-
     @Override
-    public void save(Produto produto) {
-        this.repository.save(produto);
+    public Produto save(Produto produto) {
+        return this.repository.save(produto);
     }
 
     @Override
@@ -38,8 +29,8 @@ public class ProdutoInMemoryRepository implements ProdutoRepository {
     }
 
     @Override
-    public void update(Produto produto) {
-        this.repository.update(produto);
+    public Produto update(Produto produto) {
+        return this.repository.update(produto);
     }
 
     @Override

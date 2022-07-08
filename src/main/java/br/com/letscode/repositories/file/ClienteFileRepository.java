@@ -9,8 +9,8 @@ import java.util.List;
 public class ClienteFileRepository implements ClienteRepository {
 
     @Override
-    public void save(Cliente entity) {
-
+    public Cliente save(Cliente entity) {
+        return null;
     }
 
     @Override
@@ -24,8 +24,8 @@ public class ClienteFileRepository implements ClienteRepository {
     }
 
     @Override
-    public void update(Cliente entity) {
-
+    public Cliente update(Cliente entity) {
+        return null;
     }
 
     @Override

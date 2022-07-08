@@ -10,8 +10,8 @@ public class CarrinhoFileRepository implements CarrinhoRepository {
 
 
     @Override
-    public void save(Carrinho entity) {
-
+    public Carrinho save(Carrinho entity) {
+        return null;
     }
 
     @Override
@@ -25,8 +25,8 @@ public class CarrinhoFileRepository implements CarrinhoRepository {
     }
 
     @Override
-    public void update(Carrinho entity) {
-
+    public Carrinho update(Carrinho entity) {
+        return null;
     }
 
     @Override

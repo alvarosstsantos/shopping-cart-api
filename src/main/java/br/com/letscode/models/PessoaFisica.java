@@ -3,11 +3,13 @@ package br.com.letscode.models;
 public class PessoaFisica extends Pessoa {
     private String cpf;
 
-    public String getCpf() {
-        return cpf;
+    @Override
+    public void setDocumento(String documento) {
+        this.cpf = documento;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    @Override
+    public String getDocumento() {
+        return cpf;
     }
 }
